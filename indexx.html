@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste DISC de Perfil Comportamental</title>
+<link rel='stylesheet' type='text/css'>
+</head>
+<body>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box !important;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .content {
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+
+        .content2 {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .cabecalho {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            max-width: 390px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .cabecalho img {
+            margin-bottom: 30px;
+            height: auto;
+        }
+
+        .cabecalho img+img {
+            margin-top: -40px;
+        }
+
+        .titulo {
+            margin-top: -30px;
+            text-align: center;
+            font-size: 30pt;
+        }
+
+        .opcao {
+            display: flex;
+            align-items: center;
+            background-color: #efefef;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        .resultado {
+            padding: 25px;
+            background-color: #efefef;
+        }
+
+        .resultado .frase {
+            font-weight: 600;
+            font-size: 23px;
+            text-align: center;
+        }
+
+        .input-group {
+            padding: 25px 0px;
+            width: 250px;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .input-group .bloco {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin: 0 70px;
+
+        }
+
+
+        .input-group input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-family: "Montserrat", sans-serif !important;
+            background-color: #efefef;
+            border: 2px solid #000;
+            font-size: 18px;
+        }
+
+        .input-group input::placeholder {
+            font-family: "Montserrat", sans-serif !important;
+        }
+
+        .input-group label {
+            width: 250px;
+            margin-left: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .input-group p {
+            margin-top: 40px;
+            text-align: center;
+
+        }
+
+        .explicacao .blocos {
+            display: flex;
+            flex-wrap: wrap;
+            width: 720px;
+            margin: 0 auto;
+        }
+
+        .explicacao .blocos ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .explicacao .blocos .b-green,
+        .explicacao .blocos .b-red,
+        .explicacao .blocos .b-yellow,
+        .explicacao .blocos .b-blue {
+            padding: 25px;
+            width: 350px;
+            height: 350px;
+            margin: 2.5px;
+        }
+
+        .explicacao .blocos .b-green {
+            background-color: #23a449;
+        }
+
+        .explicacao .blocos .b-red {
+            background-color: #e1212d;
+        }
+
+        .explicacao .blocos .b-blue {
+            background-color: #1ca9b3;
+        }
+
+        .explicacao .blocos .b-yellow {
+            background-color: #ece743;
+        }
+
+        .explicacao .blocos .b-yellow h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 22px;
+            color: #000000;
+        }
+
+        .explicacao .blocos .b-green h3,
+        .explicacao .blocos .b-red h3,
+        .explicacao .blocos .b-blue h3 {
+
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .explicacao .blocos .b-yellow li {
+            font-size: 20px;
+            color: #000;
+            margin-top: 10px;
+        }
+
+        .explicacao .blocos .b-green li,
+        .explicacao .blocos .b-red li,
+        .explicacao .blocos .b-blue li {
+            font-size: 20px;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .explicacao {
+            position: relative;
+            width: 935px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .explicacao .lateral {
+            transform: rotate(270deg);
+            text-align: center;
+            font-weight: bold;
+            font-size: 26px;
+            text-transform: uppercase;
+            line-height: 0;
+            position: absolute;
+        }
+
+        .explicacao .lateral:first-child {
+            left: 35px;
+        }
+
+        .explicacao .lateral:last-child {
+            right: 40px;
+        }
+
+        .bloco-explicacao {
+            margin-top: 100px;
+        }
+
+        .bloco-explicacao .center {
+            text-align: center;
+            font-weight: bold;
+            font-size: 26px;
+            text-transform: uppercase;
+        }
+
+        .content2 .subtitle {
+            font-weight: 400;
+            font-size: 22px;
+            margin-top: 50px;
+        }
+
+        .content2 .destaque {
+            font-size: 20px;
+            margin-top: 40px;
+        }
+
+        .content2 p {
+            font-size: 18px;
+        }
+
+        .content2 .frase-fim {
+            margin-top: 30px;
+        }
+
+        @media (min-width: 601px) and (max-width: 950px) {
+            .explicacao .blocos div {
+                width: 49% !important;
+            }
+
+            .lateral,
+            .center {
+                display: none;
+            }
+
+            .explicacao,
+            .explicacao .blocos {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cabecalho {
+                display: flex;
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .input-group {
+                width: 50%;
+            }
+
+            .input-group .bloco {
+                margin: 0 40px;
+            }
+
+            .cabecalho img+img {
+                margin-top: -40px;
+            }
+
+            .titulo {
+                font-size: 23pt;
+            }
+
+            .lateral,
+            .center {
+                display: none;
+            }
+
+            .explicacao,
+            .explicacao .blocos {
+                width: 100%;
+            }
+
+            .explicacao .blocos div {
+                width: 49% !important;
+            }
+        }
+
+        @media (max-width: 470px) {
+            .cabecalho {
+                display: block;
+                margin: 0 auto;
+                width: 80%;
+            }
+
+            .input-group {
+                width: 100%;
+            }
+
+            .input-group .bloco {
+                margin: 0 55px;
+            }
+
+            .explicacao .blocos div {
+                width: 100% !important;
+            }
+
+
+        }
+
+    </style>
+<div class="content">
+<div class="cabecalho">
+<img src="picwish_resized.png" alt="Logo Help Multas">
+</div>
+<div class="resultado">
+<div class="opcao">
+<div class="input-group">
+<div class="bloco">
+<input type="text" name="b1" value="0%" id="b1">
+<label for="campo">Total<br>Vermelho</label>
+</div>
+<p><strong>(D)</strong> Executor</p>
+</div>
+<div class="input-group">
+<div class="bloco">
+ <input type="text" name="z1" value="0%" id="z1">
+<label for="campo">Total<br>Amarelo</label>
+</div>
+<p><strong>(I)</strong> Comunicador</p>
+</div>
+<div class="input-group">
+<div class="bloco">
+<input type="text" name="m1" value="0%" id="m1">
+<label for="campo">Total<br>Verde</label>
+</div>
+<p><strong>(S)</strong> Planejador</p>
+</div>
+<div class="input-group">
+<div class="bloco">
+<input type="text" name="p1" value="0%" id="p1">
+<label for="campo">Total<br>Azul</label>
+</div>
+<p><strong>(C)</strong> Analista</p>
+</div>
+</div>
+<h3 class="frase">O total corresponde ao percentual que você possui em cada perfil!</h3>
+</div>
+<div class="bloco-explicacao">
+<p class="center">Primos</p>
+<div class="explicacao">
+<p class="lateral">Irmãos</p>
+<div class="blocos">
+<div class="b-yellow">
+<h3>Comunicador</h3>
+<ul>
+<li>Comunicativo</li>
+<li>Persuasivo</li>
+<li>Entusiasmado</li>
+<li>Otimista</li>
+<li>Se Relaciona com facilidade</li>
+</ul>
+</div>
+<div class="b-green">
+<h3>Planejador</h3>
+<ul>
+<li>Estável</li>
+<li>Paciente</li>
+<li>Calmo</li>
+<li>Rítmo consistente</li>
+<li>Conservador</li>
+</ul>
+</div>
+<div class="b-red">
+<h3>Executor</h3>
+<ul>
+<li>Auto confiante</li>
+<li>Dominante</li>
+<li>Aceita e gosta de Desafios</li>
+<li>Competitivo e audacioso</li>
+<li>Destemido e corajoso</li>
+</ul>
+</div>
+<div class="b-blue">
+<h3>Analista</h3>
+<ul>
+<li>Preciso</li>
+<li>Atento aos detalhes</li>
+<li>Diligente</li>
+<li>Organizado</li>
+<li>Auto-disciplinado</li>
+</ul>
+</div>
+</div>
+<p class="lateral">Irmãos</p>
+</div>
+<p class="center">Primos</p>
+</div>
+<div class="content2">
+<h5 class="subtitle">Os 4 Perfis Comportamentais e suas Principais Características</h5>
+<p class="destaque"><strong>Comunicador</strong></p>
+<p>Estimulador, Influenciador, Articulador, Participativo, Comunicativo, Facilitador.</p>
+<p class="destaque"><strong>Executor</strong></p>
+<p>Desbravador, Impulsionador, Competidor, Direcionador, Solucionador, Dominante.</p>
+<p class="destaque"><strong>Planejador</strong></p>
+<p>Moderador, Acolhedor, Prevenido, Metódico, Planejador, Estabilizador.</p>
+<p class="destaque"><strong>Analista</strong></p>
+<p>Regulador, Observador, Ordenado, Criterioso, Especialista, Idealizador.</p>
+<p class="frase-fim">Vale ressaltar que os perfis: Comunicador e Executor são aqueles considerados extrovertidos, ou seja, que possuem mais abertura para lidar com as pessoas, interagir e relacionar-se com elas. Já os perfis: Planejador e Analista são mais introvertidos e, por isso, mais voltados para os processos e resultados do que para as relações humanas.</p>
+</div>
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const somaParam = urlParams.get("soma");
+    document.getElementById("b1").value = somaParam + "%"
+    
+
+    const soma1Param = urlParams.get("soma1");
+    document.getElementById("z1").value = soma1Param + "%"
+
+    
+
+    const soma2Param = urlParams.get("soma2");
+    document.getElementById("m1").value = soma2Param + "%"
+
+    
+
+    const soma3Param = urlParams.get("soma3");
+    document.getElementById("p1").value = soma3Param + "%"
+
+
+    
+
+</script>
+</body>
+</html>
